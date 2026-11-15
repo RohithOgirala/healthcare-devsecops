@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CareWell Hospital | Secure Patient Portal</title>
+<style>
+ body{margin:0;font-family:Arial,sans-serif;background:#f3f7f9;color:#1d2d35}
+ header{background:#00796b;color:#fff;padding:18px 60px;display:flex;justify-content:space-between;align-items:center}
+ header h2{margin:0} .lock{background:#004d40;padding:6px 12px;border-radius:20px;font-size:13px}
+ nav{background:#fff;padding:12px 60px;box-shadow:0 1px 3px #0001}
+ nav a{margin-right:28px;color:#00796b;font-weight:bold;text-decoration:none}
+ .hero{background:linear-gradient(90deg,#00796b,#26a69a);color:#fff;padding:45px 60px}
+ .wrap{padding:30px 60px} h2.t{color:#00796b}
+ .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+ .card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px #0002}
+ .card h3{color:#00796b;margin-top:0}
+ .row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+ form{background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 6px #0002}
+ input,select{width:100%;padding:10px;margin:6px 0 14px;border:1px solid #cfd8dc;border-radius:5px;box-sizing:border-box}
+ button{background:#00796b;color:#fff;border:0;padding:11px 20px;border-radius:5px;font-weight:bold}
+ .sec{background:#e0f2f1;border-left:5px solid #00796b;padding:20px;border-radius:6px}
+ .sec li{margin:6px 0}
+ footer{background:#004d40;color:#fff;text-align:center;padding:18px;margin-top:30px}
+</style>
+</head>
+<body>
+<header><h2>CareWell Hospital</h2><span class="lock">&#128274; HTTPS-ready &middot; DevSecOps Secured</span></header>
+<nav><a href="#">Home</a><a href="#">Departments</a><a href="#">Appointments</a><a href="#">Patient Login</a><a href="#">Security</a></nav>
+<div class="hero">
+ <h1>Trusted Care, Protected Data</h1>
+ <p>CareWell's patient portal is built and deployed through a secure DevSecOps pipeline with automated security checks at every stage.</p>
+</div>
+<div class="wrap">
+ <h2 class="t">Departments</h2>
+ <div class="grid">
+  <div class="card"><h3>Cardiology</h3><p>Heart care, ECG and cardiac consultations.</p></div>
+  <div class="card"><h3>Pediatrics</h3><p>Complete healthcare for infants and children.</p></div>
+  <div class="card"><h3>Radiology</h3><p>X-ray, CT and MRI diagnostics.</p></div>
+  <div class="card"><h3>Pharmacy</h3><p>Prescriptions and medicine availability.</p></div>
+ </div>
+ <div class="row">
+  <form onsubmit="return false">
+   <h2 class="t" style="margin-top:0">Book an Appointment</h2>
+   <label>Patient Name</label><input placeholder="Full name">
+   <label>Department</label><select><option>Cardiology</option><option>Pediatrics</option><option>Radiology</option></select>
+   <label>Date</label><input type="date">
+   <button>Book Appointment</button>
+  </form>
+  <div class="sec">
+   <h2 class="t" style="margin-top:0">Security Controls (DevSecOps)</h2>
+   <ul>
+    <li>Secret scanning of source code (Trivy)</li>
+    <li>Dockerfile &amp; Kubernetes misconfiguration scanning</li>
+    <li>Container image vulnerability scan with CRITICAL gate</li>
+    <li>Non-root container (nginx-unprivileged, UID 101)</li>
+    <li>Read-only root filesystem &amp; dropped Linux capabilities</li>
+    <li>CPU/memory limits and isolated <b>healthcare</b> namespace</li>
+   </ul>
+  </div>
+ </div>
+</div>
+<footer><b>CareWell Hospital Management System</b><br>Secure Healthcare &middot; Better Patient Care &middot; &copy; 2026</footer>
+</body>
+</html>

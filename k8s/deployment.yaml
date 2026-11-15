@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carewell
+  namespace: healthcare
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: carewell
+  template:
+    metadata:
+      labels:
+        app: carewell
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+      containers:
+      - name: carewell
+        image: carewell-app:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
+        resources:
+          requests: { cpu: "50m", memory: "64Mi" }
+          limits:   { cpu: "250m", memory: "128Mi" }
+        readinessProbe:
+          httpGet: { path: /, port: 8080 }
+          initialDelaySeconds: 3
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {}
